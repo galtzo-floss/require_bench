@@ -200,4 +200,67 @@ RSpec.describe RequireBench do
       end
     end
   end
+
+  describe "the require hook branches" do
+    let(:library) { included_library_by_name }
+
+    let(:runner) do
+      Object.new.tap do |object|
+        object.extend(Kernel)
+        object.define_singleton_method(:require_without_timing) do |file, *args|
+          [:direct, file, args]
+        end
+      end
+    end
+
+    it "bypasses timing for skipped files" do
+      result = runner.send(:_require_bench_file, "require", false, true, "skipped_file")
+
+      expect(result).to eq([:direct, "skipped_file", []])
+    end
+
+    it "measures explicitly included files" do
+      allow(described_class).to receive(:consume_with_timing).and_return(:measured)
+
+      result = runner.send(:_require_bench_file, "require", true, false, "included_file")
+
+      expect(result).to eq(:measured)
+    end
+
+    it "measures all files when no include pattern is configured" do
+      stub_const("RequireBench::INCLUDE_PATTERN", nil)
+      allow(described_class).to receive(:consume_with_timing).and_return(:measured)
+
+      result = runner.send(:_require_bench_file, "require", false, false, "unfiltered_file")
+
+      expect(result).to eq(:measured)
+    end
+
+    it "handles rescued load errors through the printer" do
+      stub_const("RequireBench::RESCUED_CLASSES", [LoadError])
+      missing_file = "missing_require_bench_file"
+      runner.define_singleton_method(:require_without_timing) do |file, *args|
+        raise LoadError, "cannot load such file -- #{file}"
+      end
+
+      expect do
+        runner.send(:_require_bench_consume_file, "require", missing_file)
+      end.to output(/LoadError/).to_stdout
+    end
+
+    it "uses the timeout path when configured" do
+      path = File.expand_path("support/my_library/timeout_file.rb", __dir__)
+      File.write(path, "TimeoutFile = true\n")
+      stub_const("RequireBench::TIMEOUT", 1)
+
+      begin
+        described_class.consume_with_timing("require", path)
+      ensure
+        $LOADED_FEATURES.delete(path)
+        File.delete(path) if File.exist?(path)
+      end
+
+      expect(described_class::TIMINGS).to have_key(path)
+    end
+  end
 end

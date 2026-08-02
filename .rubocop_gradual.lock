@@ -10,8 +10,8 @@
     [54, 11, 6, "Lint/Syntax: unexpected token tCONSTANT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 3389761934],
     [55, 11, 6, "Lint/Syntax: unexpected token tCONSTANT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 3389756745]
   ],
-  "lib/require_bench.rb:563087560": [
-    [121, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
+  "lib/require_bench.rb:2940933956": [
+    [122, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
   ],
   "spec/support/helpers/file_factory.rb:3973989258": [
     [21, 16, 2, "Lint/Syntax: unexpected token tLSHFT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5859461],

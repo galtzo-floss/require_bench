@@ -3,6 +3,7 @@
 require_relative "require_bench/version"
 
 REQUIRE_BENCH_ENABLED = ENV.fetch('REQUIRE_BENCH', 'false').casecmp?('true')
+$require_bench_semaphore = nil unless defined?($require_bench_semaphore)
 
 # STD Libs
 if REQUIRE_BENCH_ENABLED
@@ -166,7 +167,7 @@ if REQUIRE_BENCH_ENABLED
         begin
           _require_bench_file(type, measure, skippy, file_path, *args)
         rescue *RequireBench::RESCUED_CLASSES => e
-          RequireBench::PRINTER.out_error(e, file, short_type, *args)
+          RequireBench::PRINTER.out_err(e, file, short_type, *args)
         end
       else
         _require_bench_file(type, measure, skippy, file_path, *args)
