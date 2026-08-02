@@ -10,9 +10,9 @@ end
 
 # external libs
 require "version_gem"
+require_relative "require_bench/version"
 
 # This Gem
-require_relative 'require_bench/version'
 
 # Namespace for this gem
 module RequireBench

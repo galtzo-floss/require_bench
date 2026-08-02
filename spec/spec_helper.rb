@@ -1,5 +1,27 @@
 # frozen_string_literal: true
 
+# Config for development dependencies of this library
+# i.e., not configured by this library
+#
+# SimpleCov & related config (must run BEFORE any other requires)
+# NOTE: Gemfiles for non-coverage appraisals may not have kettle-soup-cover.
+#       The rescue LoadError handles that scenario.
+begin
+  require "kettle-soup-cover"
+  if Kettle::Soup::Cover::DO_COV
+    # Requiring simplecov loads the project-local `.simplecov`.
+    require "simplecov"
+    require "kettle/soup/cover/config"
+    SimpleCov.start
+  end
+rescue LoadError => error
+  # check the error message and re-raise when unexpected
+  raise error unless error.message.include?("kettle")
+end
+
+# External RSpec & related config
+require "kettle/test/rspec"
+# `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 require "silent_stream"
 require "colorize"
 require "lucky_case"
@@ -39,7 +61,6 @@ end
 
 # Load Code Coverage as the last thing before this gem
 if RUN_COVERAGE
-  require "simplecov" # Config file `.simplecov` is run immediately when simplecov loads
 end
 
 # The gem does nothing unless this variable is set.

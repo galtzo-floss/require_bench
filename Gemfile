@@ -1,41 +1,51 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+# kettle-jem:freeze
+# To retain chunks of comments & code during kettle-jem templating:
+# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+# kettle-jem will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
 
-git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+source "https://gem.coop"
+
+git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
 git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
-# Include dependencies from <gem name>.gemspec
+#### IMPORTANT #######################################################
+# Gemfile is for local development ONLY; Gemfile is NOT loaded in CI #
+####################################################### IMPORTANT ####
+
+# Include dependencies from require_bench.gemspec
 gemspec
 
-# rubocop:disable Layout/LeadingCommentSpace
-#noinspection RbsMissingTypeSignature
-RUBY_VER = Gem::Version.new(RUBY_VERSION)
-#noinspection RbsMissingTypeSignature
-IS_CI = ENV.fetch("CI", "false").casecmp?("true")
-#noinspection RbsMissingTypeSignature
-DEBUG_IDE = ENV.fetch("DEBUG_IDE", "false").casecmp?("true")
-#noinspection RbsMissingTypeSignature
-LOCAL_SUPPORTED = !IS_CI && Gem::Version.new("2.7") <= RUBY_VER && RUBY_ENGINE == "ruby"
-# rubocop:enable Layout/LeadingCommentSpace
+gem "kettle-family", "~> 1.2", ">= 1.2.22"
 
-if LOCAL_SUPPORTED || IS_CI
-  # Coverage
-  eval_gemfile "./gemfiles/contexts/coverage.gemfile"
 
-  # Linting
-  eval_gemfile "./gemfiles/contexts/style.gemfile"
+# Local workspace dependency wiring for *_local.gemfile overrides
+gem "nomono", "~> 1.1", ">= 1.1.3", require: false # ruby >= 3.2.0
 
-  # Testing
-  eval_gemfile "./gemfiles/contexts/testing.gemfile"
 
-  # Documentation
-  eval_gemfile "./gemfiles/contexts/docs.gemfile"
-end
 
-# Debugging code should never run in CI
-unless IS_CI
-  eval_gemfile "./gemfiles/contexts/debug.gemfile"
-end
+# Templating (env-switched: STRUCTUREDMERGE_DEV=/path/to/structuredmerge/ruby/gems for local paths)
+eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
 
-eval_gemfile "./gemfiles/contexts/core.gemfile"
+# Debugging
+eval_gemfile "gemfiles/modular/debug.gemfile"
+
+# Code Coverage (env-switched: KETTLE_DEV_DEV=true for local paths)
+eval_gemfile "gemfiles/modular/coverage.gemfile"
+
+# Linting
+eval_gemfile "gemfiles/modular/style.gemfile"
+
+# Documentation
+eval_gemfile "gemfiles/modular/documentation.gemfile"
+
+# Optional
+eval_gemfile "gemfiles/modular/optional.gemfile"
+
+### Std Lib Extracted Gems
+eval_gemfile "gemfiles/modular/x_std_libs.gemfile"
+
+# See unlocked_deps appraisal for more details on irb inclusion
+gem "irb", "~> 1.17" # ruby >= 2.7
