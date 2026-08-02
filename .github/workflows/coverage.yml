@@ -6,8 +6,6 @@ permissions:
   id-token: write
 
 env:
-  # Bootstrap behavior is selected by environment at process start; the
-  # project retains the global line floor and an explicit branch floor here.
   K_SOUP_COV_MIN_BRANCH: 59
   K_SOUP_COV_MIN_LINE: 89
   K_SOUP_COV_MIN_HARD: true
