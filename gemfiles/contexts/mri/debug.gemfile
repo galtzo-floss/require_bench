@@ -5,6 +5,6 @@ if DEBUG_IDE
 else
   # See:
   #   https://blog.pawandubey.com/explained-binding-pry-byebug-debugger/
-  gem "pry-byebug", "~> 3.10", ">= 3.10.1"
   gem "debug", "~> 1.8"
+  gem "pry-byebug", "~> 3.10", ">= 3.10.1"
 end

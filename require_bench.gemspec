@@ -62,7 +62,7 @@ Gem::Specification.new do |spec|
   gemspec_root = __dir__
   relative_package_path = lambda do |path|
     prefix = "#{gemspec_root}/"
-    path[0, prefix.length] == prefix ? path[prefix.length..-1] : path
+    (path[0, prefix.length] == prefix) ? path[prefix.length..-1] : path
   end
   enumerate_package_glob = lambda do |glob|
     files = []
@@ -91,7 +91,7 @@ Gem::Specification.new do |spec|
     *enumerate_package_files.call("lib"),
     # Executables and executable support scripts
     *enumerate_package_files.call("exe"),
-    *enumerate_package_glob.call(File.join(gemspec_root, "LICENSE.txt")),
+    *enumerate_package_glob.call(File.join(gemspec_root, "LICENSE.txt"))
   ]
   spec.rdoc_options += [
     "--title",
@@ -158,15 +158,15 @@ Gem::Specification.new do |spec|
   # See: https://github.com/vcr/vcr/issues/1057
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
-  spec.add_development_dependency("rbs", ">= 3.1")
-  spec.add_development_dependency("redcarpet", "~> 3.6")
-  spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
   spec.add_development_dependency("colorize", "~> 1.1")
   spec.add_development_dependency("lucky_case", "~> 1.1")
+  spec.add_development_dependency("rbs", ">= 3.1")
+  spec.add_development_dependency("redcarpet", "~> 3.6")
   spec.add_development_dependency("rspec", "~> 3.12")
   spec.add_development_dependency("rspec-block_is_expected", "~> 1.0")
   spec.add_development_dependency("rspec-stubbed_env", "~> 1.0", ">= 1.0.6")
   spec.add_development_dependency("rubocop-lts", "~> 8.1", ">= 8.1.1") # Lint & Style Support for Ruby 2.2+
   spec.add_development_dependency("rubocop-packaging", "~> 0.5", ">= 0.5.2")
   spec.add_development_dependency("silent_stream", "~> 1.0", ">= 1.0.3")
+  spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
 end

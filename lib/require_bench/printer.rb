@@ -15,7 +15,7 @@ class Printer
   def out_err(error, file, type)
     printf(
       "🚥 [RequireBench-#{type}] ❌ '#{error.class}: #{error.message}' loading %s 🚥\n#{error.backtrace.join("\n")}",
-      file,
+      file
     )
   end
 end

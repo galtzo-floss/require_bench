@@ -1,48 +1,23 @@
 {
-  "lib/require_bench.rb:1732025826": [
-    [120, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
+  "bin/checksums:110240134": [
+    [13, 28, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765],
+    [15, 18, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765],
+    [21, 1, 4, "Lint/Syntax: unexpected token kELSE\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 2087423834],
+    [34, 1, 3, "Lint/Syntax: unexpected token kEND\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 193405706],
+    [46, 11, 2, "Lint/Syntax: unexpected token tLSHFT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5859461],
+    [47, 19, 1, "Lint/Syntax: unexpected token tSTAR\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 177551],
+    [48, 15, 1, "Lint/Syntax: unexpected token tSTRING_BEG\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 177543],
+    [54, 11, 6, "Lint/Syntax: unexpected token tCONSTANT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 3389761934],
+    [55, 11, 6, "Lint/Syntax: unexpected token tCONSTANT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 3389756745]
   ],
-  "spec/require_bench_spec.rb:1611544773": [
-    [3, 1, 6125, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 337126267],
-    [52, 3, 1663, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 9603378],
-    [53, 5, 1024, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 2454755683],
-    [74, 7, 46, "RSpec/MultipleExpectations: Example has too many expectations [2/1].", 167768954],
-    [86, 5, 128, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 872552501],
-    [92, 5, 126, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 9202605],
-    [98, 5, 331, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 94203766],
-    [99, 7, 22, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 2546694418],
-    [99, 7, 143, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 251306350],
-    [105, 7, 21, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 1118029962],
-    [105, 7, 141, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 3114589748],
-    [113, 3, 2226, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 1363301353],
-    [114, 5, 696, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 4011980318],
-    [141, 5, 128, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 2311428175],
-    [147, 5, 126, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 2504015831],
-    [153, 5, 331, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 3617134572],
-    [154, 7, 22, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 2546694418],
-    [154, 7, 143, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 1758736916],
-    [160, 7, 21, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 1118029962],
-    [160, 7, 141, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 3119515726],
-    [167, 5, 195, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 1695729484],
-    [168, 7, 22, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 2546694418],
-    [168, 7, 144, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 2353282697],
-    [175, 5, 683, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 1566190795],
-    [176, 7, 22, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 2546694418],
-    [176, 7, 136, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 1542894591],
-    [182, 7, 21, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 1118029962],
-    [182, 7, 134, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 247633317],
-    [188, 7, 21, "RSpec/NestedGroups: Maximum example group nesting exceeded [4/3].", 2736918403],
-    [188, 7, 353, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 2921333434],
-    [189, 9, 22, "RSpec/NestedGroups: Maximum example group nesting exceeded [5/3].", 2546694418],
-    [189, 9, 151, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 3807828920],
-    [195, 9, 21, "RSpec/NestedGroups: Maximum example group nesting exceeded [5/3].", 1118029962],
-    [195, 9, 149, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [27/5]", 3358332626]
+  "lib/require_bench.rb:563087560": [
+    [121, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
   ],
   "spec/support/helpers/file_factory.rb:3973989258": [
     [21, 16, 2, "Lint/Syntax: unexpected token tLSHFT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5859461],
     [22, 7, 6, "Lint/Syntax: module definition in method body\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1465948607],
     [23, 9, 6, "Lint/Syntax: module definition in method body\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1465948607],
     [24, 19, 1, "Lint/Syntax: unexpected token tEQL\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 177560],
-    [46, 1, 0, "Lint/Syntax: unexpected token $end\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", ]
+    [45, 4, 1, "Lint/Syntax: unexpected token $end\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 177583]
   ]
 }

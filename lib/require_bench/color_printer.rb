@@ -12,6 +12,7 @@ class Printer
   attr_accessor :colors, :color
 
   extend Forwardable
+
   def_delegators :@colors, :rotate!, :first
   def initialize
     @colors = ColorizedString.colors.dup.reject { |x| x.match?(/black|white/) }
@@ -32,7 +33,7 @@ class Printer
   def out_err(error, file, type)
     printf(
       "🚥 #{ColorizedString["[RequireBench-#{type}]"].colorize(first)} ❌ '#{error.class}: #{error.message}' loading %s 🚥\n#{error.backtrace.join("\n")}",
-      file,
+      file
     )
     rotate!
   end
