@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "require_bench/version"
+
 REQUIRE_BENCH_ENABLED = ENV.fetch('REQUIRE_BENCH', 'false').casecmp?('true')
 
 # STD Libs
@@ -10,7 +12,6 @@ end
 
 # external libs
 require "version_gem"
-require_relative "require_bench/version"
 
 # This Gem
 

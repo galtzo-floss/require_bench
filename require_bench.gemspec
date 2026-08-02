@@ -85,13 +85,13 @@ Gem::Specification.new do |spec|
 
   # Specify which files are part of the released package.
   spec.files = [
-    *enumerate_package_glob.call(File.join(gemspec_root, "LICENSE.txt")),
     # Root package metadata
     *package_metadata_files,
     # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
     *enumerate_package_files.call("lib"),
     # Executables and executable support scripts
-    *enumerate_package_files.call("exe")
+    *enumerate_package_files.call("exe"),
+    *enumerate_package_glob.call(File.join(gemspec_root, "LICENSE.txt")),
   ]
   spec.rdoc_options += [
     "--title",
@@ -158,7 +158,7 @@ Gem::Specification.new do |spec|
   # See: https://github.com/vcr/vcr/issues/1057
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
-  spec.add_development_dependency("rbs", "~> 3.1")
+  spec.add_development_dependency("rbs", ">= 3.1")
   spec.add_development_dependency("redcarpet", "~> 3.6")
   spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
   spec.add_development_dependency("colorize", "~> 1.1")

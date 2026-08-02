@@ -7,5 +7,5 @@ Choose the option that best fits your use case:
 
 ## Copyright Notice
 
-- Copyright (c) 2018-2020, 2023, 2026 Peter Boling
+- Copyright (c) 2018-2020, 2023, 2026 Peter H. Boling
 - Copyright (c) 2025 Aboling0

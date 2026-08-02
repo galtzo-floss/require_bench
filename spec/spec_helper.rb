@@ -53,7 +53,7 @@ ALL_FORMATTERS = ENV.fetch("COVER_ALL", "false").casecmp?("true") && (!IS_CI || 
 
 if DEBUG
   if debugging
-    require "byebug"
+    require "debug"
   elsif VersionGem::Ruby.gte_minimum_version?(version, "jruby")
     require "pry-debugger-jruby"
   end
