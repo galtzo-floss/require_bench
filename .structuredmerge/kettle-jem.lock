@@ -1096,7 +1096,7 @@ files:
   mise.toml:
     recipe: template_source_application_mise_toml
     action: write
-    dest_sha256: b7daa7e5ff83c21c2dd436906d5fa68b370a049805f1a14888cc55317a861df6
+    dest_sha256: 07315e833b0b80f5401f39cba5af866dff6b17e7c6b0b682c49654717db6df0e
     input_fingerprint: 761594d1f24d5ec0ca4d45b7364d737e180478f37a2d3d38ba70912a96c6a188
     template_sources:
     - mise.toml.example
