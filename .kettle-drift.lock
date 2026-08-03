@@ -1,0 +1,38 @@
+{
+  "- gem: rbs\ndirect: require_bench.gemspec": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        99,
+        104
+      ]
+    }
+  ],
+  "direct: require_bench.gemspec\nmodular: gemfiles/modular/shunted.gemfile": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        95,
+        105
+      ]
+    }
+  ],
+  "direct: require_bench.gemspec\nmodular: gemfiles/modular/style.gemfile": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        110,
+        115
+      ]
+    }
+  ],
+  "modular: gemfiles/modular/shunted.gemfile\naction: keep_both": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        96,
+        106
+      ]
+    }
+  ]
+}

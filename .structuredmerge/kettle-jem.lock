@@ -2,7 +2,7 @@
 version: 1
 template_state:
   version: 7.1.0
-  applied_at: '2026-08-02'
+  applied_at: '2026-08-03'
   changelog_replay:
     last_entry_key: kettle-jem-template-20260802-001
     last_entry_date: '2026-08-02'
@@ -75,7 +75,7 @@ template_state:
     ".rubocop_rspec.yml.example": 288ad75e7eb14d87d80fafe6f7272217be5c57547536ee56c780a7d10ac7ec74
     ".simplecov.example": ffc76492effe905cc65797389fc8050fda136652ac078a80303cd084b349ef28
     ".structuredmerge/git-drivers.toml.example": 9d241a44c9edffcdbd3da018fa188a238089c3d1635040924df594a6929a4f97
-    ".structuredmerge/kettle-jem.yml.example": 052c3ce4efcc6080f4705042114ba300cb95fcca9fc0ae4e0182e5a367e47650
+    ".structuredmerge/kettle-jem.yml.example": 8be0543a118a1f2df4d17812f83534c9f02cce2711a31b43a463f73af138680c
     ".yard-lint.yml.example": 90def46867c9436b4e177c47d91fc8165f4602e335715aecc39f5587ae20b55b
     ".yardignore.example": 821f453c609df7d46145d675424b39dfbe6dfdca8edac5f367b85fff48502455
     ".yardopts.example": 6fd6f2701713096a8a9ea095c213bbc68eeef37797c4754d97837e3229a3a5f6
@@ -991,7 +991,7 @@ files:
   gemfiles/modular/style.gemfile:
     recipe: template_source_application_gemfiles_modular_style_gemfile
     action: write
-    dest_sha256: 2d86dd61eddf14f4eae51728987d932af46a919ed5cbd9e2f7dc568969db5e00
+    dest_sha256: 60b6fd1cb117bcac261b80bfb922435e4e0607d1f929497ed6c1357b188d035c
     input_fingerprint: cbfd1a61caa2bf07bd43e688cd2984b2f2410de77b94dd0098356dd522b5f247
     template_sources:
     - gemfiles/modular/style.gemfile.example
