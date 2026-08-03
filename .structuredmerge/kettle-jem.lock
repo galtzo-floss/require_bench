@@ -730,12 +730,6 @@ files:
     input_fingerprint: e2fbb7a6f002738b8f56207c11162274500d01cef154889d39bdbac5698c0ed8
     template_sources:
     - README.md.example
-  REEK:
-    recipe: template_source_application_REEK
-    action: write
-    input_fingerprint: 60adbf85e58b7d033a56acffed591aea731c561d532b7affac66531bbe4689f3
-    template_sources:
-    - REEK
   RUBOCOP.md:
     recipe: template_source_application_RUBOCOP_md
     action: write
