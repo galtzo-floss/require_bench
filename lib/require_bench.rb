@@ -3,7 +3,6 @@
 require_relative "require_bench/version"
 
 REQUIRE_BENCH_ENABLED = ENV.fetch('REQUIRE_BENCH', 'false').casecmp?('true')
-$require_bench_semaphore = nil unless defined?($require_bench_semaphore)
 
 # STD Libs
 if REQUIRE_BENCH_ENABLED
@@ -18,6 +17,18 @@ require "version_gem"
 
 # Namespace for this gem
 module RequireBench
+  # Keep the unwrapped methods out of Kernel's method table. The old alias-based
+  # hook was global and could be redefined by another load of this file.
+  ORIGINAL_KERNEL_METHODS = {
+    require: Kernel.instance_method(:require),
+    load: Kernel.instance_method(:load)
+  }.freeze
+  SEMAPHORE_KEY = :__require_bench_semaphore
+
+  def self.semaphore_active?
+    Thread.current[SEMAPHORE_KEY] == true
+  end
+
   if REQUIRE_BENCH_ENABLED
     TIMINGS = Hash.new { |h, k| h[k] = 0.0 }
     skips = ENV['REQUIRE_BENCH_SKIP_PATTERN']
@@ -96,7 +107,8 @@ module RequireBench
     TRACKED_METHODS = tracked_methods
 
     def consume_with_timing(type, file, *args)
-      $require_bench_semaphore = true
+      previous_semaphore = Thread.current[SEMAPHORE_KEY]
+      Thread.current[SEMAPHORE_KEY] = true
       short_type = type[0]
       ret = nil
       # Not sure if this is actually a useful abstraction...
@@ -131,58 +143,65 @@ module RequireBench
       RequireBench::TIMINGS[prefix] += seconds
       ret
     ensure
-      $require_bench_semaphore = nil
+      Thread.current[SEMAPHORE_KEY] = previous_semaphore
     end
     module_function :consume_with_timing
   end
-end
 
-if REQUIRE_BENCH_ENABLED
-  # A Kernel hack that adds require timing to find require problems in app.
-  module Kernel
-    alias require_without_timing require
-    alias load_without_timing load
+  if REQUIRE_BENCH_ENABLED
+    # A Kernel prepend keeps one stable interception point and lets us call the
+    # original methods without mutating Kernel with aliases.
+    module KernelHook
+      def require(file)
+        _require_bench_consume_file('require', file)
+      end
 
-    def require(file)
-      _require_bench_consume_file('require', file)
-    end
+      def load(file, *args)
+        _require_bench_consume_file('load', file, *args)
+      end
 
-    def load(file,  *args)
-      _require_bench_consume_file('load', file, *args)
-    end
+      def require_without_timing(file, *args)
+        RequireBench::ORIGINAL_KERNEL_METHODS[:require].bind(self).call(file, *args)
+      end
 
-    def _require_bench_consume_file(type, file, *args)
-      file_path = file.to_s
-      # byebug if file_path.match?(/no_group_fox/)
+      def load_without_timing(file, *args)
+        RequireBench::ORIGINAL_KERNEL_METHODS[:load].bind(self).call(file, *args)
+      end
 
-      # Global $ variable, which is always truthy while inside the hack, is to
-      #   prevent a scenario that might result in infinite recursion.
-      return send("#{type}_without_timing", file_path, *args) if $require_bench_semaphore
+      def _require_bench_consume_file(type, file, *args)
+        file_path = file.to_s
+        return send("#{type}_without_timing", file_path, *args) if RequireBench.semaphore_active?
 
-      short_type = type[0]
-      measure = RequireBench::INCLUDE_PATTERN && file_path.match?(RequireBench::INCLUDE_PATTERN)
-      skippy = RequireBench::SKIP_PATTERN && file_path.match?(RequireBench::SKIP_PATTERN)
-      RequireBench::PRINTER.out_start(file, short_type) if RequireBench::LOG_START
-      if RequireBench::RESCUED_CLASSES.any?
-        begin
+        short_type = type[0]
+        measure = RequireBench::INCLUDE_PATTERN && file_path.match?(RequireBench::INCLUDE_PATTERN)
+        skippy = RequireBench::SKIP_PATTERN && file_path.match?(RequireBench::SKIP_PATTERN)
+        RequireBench::PRINTER.out_start(file, short_type) if RequireBench::LOG_START
+        if RequireBench::RESCUED_CLASSES.any?
+          begin
+            _require_bench_file(type, measure, skippy, file_path, *args)
+          rescue *RequireBench::RESCUED_CLASSES => e
+            RequireBench::PRINTER.out_err(e, file, short_type, *args)
+          end
+        else
           _require_bench_file(type, measure, skippy, file_path, *args)
-        rescue *RequireBench::RESCUED_CLASSES => e
-          RequireBench::PRINTER.out_err(e, file, short_type, *args)
         end
-      else
-        _require_bench_file(type, measure, skippy, file_path, *args)
       end
+
+      def _require_bench_file(type, measure, skippy, file_path, *args)
+        if !measure && skippy
+          send("#{type}_without_timing", file_path, *args)
+        elsif RequireBench::INCLUDE_PATTERN.nil? || measure
+          RequireBench.consume_with_timing(type, file_path, *args)
+        else
+          send("#{type}_without_timing", file_path, *args)
+        end
+      end
+
+      private :require, :load, :require_without_timing, :load_without_timing,
+              :_require_bench_consume_file, :_require_bench_file
     end
 
-    def _require_bench_file(type, measure, skippy, file_path, *args)
-      if !measure && skippy
-        send("#{type}_without_timing", file_path, *args)
-      elsif RequireBench::INCLUDE_PATTERN.nil? || measure
-        RequireBench.consume_with_timing(type, file_path, *args)
-      else
-        send("#{type}_without_timing", file_path, *args)
-      end
-    end
+    Kernel.prepend(KernelHook) unless Kernel.ancestors.include?(KernelHook)
   end
 end
 

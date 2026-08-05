@@ -213,6 +213,31 @@ RSpec.describe RequireBench do
       end
     end
 
+    it "does not interfere with lazy RSpec matcher loading" do
+      expect(RSpec::Matchers::BuiltIn::Eq.new(:expected)).to be_a(RSpec::Matchers::BuiltIn::BaseMatcher)
+    end
+
+    it "keeps the recursion guard local to its thread" do
+      ready = Queue.new
+      release = Queue.new
+
+      begin
+        # rubocop:disable ThreadSafety/NewThread
+        worker = Thread.new do
+          Thread.current[RequireBench::SEMAPHORE_KEY] = true
+          ready << true
+          release.pop
+        end
+        # rubocop:enable ThreadSafety/NewThread
+
+        ready.pop
+        expect(described_class.semaphore_active?).to be(false)
+      ensure
+        release << true
+        worker.join if worker
+      end
+    end
+
     it "bypasses timing for skipped files" do
       result = runner.send(:_require_bench_file, "require", false, true, "skipped_file")
 

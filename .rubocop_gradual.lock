@@ -13,8 +13,8 @@
   "gemfiles/modular/templating.gemfile:3018447732": [
     [14, 3, 47, "Bundler/DuplicatedGem: Gem `tree_sitter_language_pack` requirements already given on line 10 of the Gemfile.", 3843603197]
   ],
-  "lib/require_bench.rb:2940933956": [
-    [122, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
+  "lib/require_bench.rb:3194297466": [
+    [134, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
   ],
   "spec/support/helpers/file_factory.rb:3973989258": [
     [21, 16, 2, "Lint/Syntax: unexpected token tLSHFT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5859461],

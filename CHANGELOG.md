@@ -93,6 +93,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Fix coverage configuration loading before the spec helper initializes its run-mode constants.
 
+- Make require timing recursion protection thread-local and preserve lazy-loaded dependencies.
+
 ### Security
 
 ## [1.0.4] 2023-10-10
