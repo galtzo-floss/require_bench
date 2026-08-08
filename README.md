@@ -119,6 +119,10 @@ gem install require_bench
 
 ## ⚙️ Configuration
 
+RequireBench is disabled unless `REQUIRE_BENCH` is exactly `"true"`. When
+enabled, require `require_bench/tasks` near the top of the Rakefile and use its
+task options to select ignored libraries and output behavior.
+
 ## 🔧 Basic Usage
 
 Require the library where it will be loaded prior to any other requires you want to benchmark.
