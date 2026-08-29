@@ -79,7 +79,9 @@ The _amazing_ test matrix is powered by the kettle-dev stack.
 
 </details>
 
-### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/require_bench)](https://tidelift.com/subscription/pkg/rubygems-require_bench?utm_source=rubygems-require_bench&utm_medium=referral&utm_campaign=readme)
+### Enterprise Support
+
+[![Tidelift](https://tidelift.com/badges/package/rubygems/require_bench)](https://tidelift.com/subscription/pkg/rubygems-require_bench?utm_source=rubygems-require_bench&utm_medium=referral&utm_campaign=readme)
 
 Available as part of the Tidelift Subscription.
 
@@ -367,7 +369,7 @@ See [LICENSE.md][📄license] for the official copyright notice.
 <summary>Copyright holders</summary>
 
 - Copyright (c) 2018-2020, 2023, 2026 Peter H. Boling
-- Copyright (c) 2025 Aboling0
+- Copyright (c) 2025 Annibelle Boling
 
 </details>
 

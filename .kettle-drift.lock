@@ -3,8 +3,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        101,
-        106
+        114,
+        119
       ]
     }
   ],
@@ -12,8 +12,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        97,
-        107
+        110,
+        120
       ]
     }
   ],
@@ -21,8 +21,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        112,
-        117
+        125,
+        130
       ]
     }
   ],
@@ -30,8 +30,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        98,
-        108
+        111,
+        121
       ]
     }
   ]
