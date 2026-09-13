@@ -57,6 +57,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Timing hooks engage on Ruby < 3.0 again; previously `Kernel.prepend` did not
+  reach `Object` there, so requires were not measured and timed calls raised
+  `NoMethodError` (`require_without_timing`).
+
 - kettle-jem-template-20260720-003 - StructuredMerge Git diff driver config now
   uses the installed `smorg-rb` driver command.
 - kettle-jem-template-20260725-001 - Release pull request branches beginning

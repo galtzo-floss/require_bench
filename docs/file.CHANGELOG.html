@@ -123,6 +123,11 @@ installing the main Gemfile bundle.</p>
 <h3 id="fixed">Fixed</h3>
 
 <ul>
+  <li>
+    <p>Timing hooks engage on Ruby &lt; 3.0 again; previously <code>Kernel.prepend</code> did not<br>
+reach <code>Object</code> there, so requires were not measured and timed calls raised<br>
+<code>NoMethodError</code> (<code>require_without_timing</code>).</p>
+  </li>
   <li>kettle-jem-template-20260720-003 - StructuredMerge Git diff driver config now<br>
 uses the installed <code>smorg-rb</code> driver command.</li>
   <li>kettle-jem-template-20260725-001 - Release pull request branches beginning<br>
