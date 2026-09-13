@@ -86,7 +86,7 @@
     [236, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
     [237, 16, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]
   ],
-  "spec/require_bench_support_spec.rb:1804325065": [
+  "spec/require_bench_support_spec.rb:508819519": [
     [29, 54, 15, "Lint/LtsRuby/UnavailableMethod: Binding#source_location is unavailable before Ruby 2.6.", 1034148730],
     [30, 36, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808]
   ],
