@@ -253,6 +253,9 @@ workflows:
   # Default command used by generated test workflows.
   # ENV override: KJ_EXEC_CMD
   exec_cmd: kettle-test
+  # Evaluated in every standard appraisal (colorize, Ruby >= 2.6 only).
+  standard_appraisal_gemfiles:
+  - modular/colorize.gemfile
   # Include VCR/WebMock recording modular gemfiles in generated Appraisals.
   # Enable only for projects that actually require recording support.
   recording: false
@@ -298,6 +301,9 @@ workflows:
 #   org => related-org,ruby,org
 #   project => related-org,ruby,project
 #   org_and_project => related-org,ruby,org,project
+test_bundle:
+  gemfiles:
+  - gemfiles/modular/colorize.gemfile
 readme:
   top_logos: org
   h2_synopsis_logos: related-org,ruby

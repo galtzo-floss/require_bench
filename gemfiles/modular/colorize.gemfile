@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+
+# RequireBench switches to its color printer when ColorizedString is loaded.
+# colorize requires Ruby >= 2.6, so it cannot be a gemspec development dependency
+# (those must install on every Ruby in CI).
+gem "colorize", "~> 1.1" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.6")

@@ -32,6 +32,8 @@ RSpec.describe RequireBench do
     end
 
     before do
+      skip("colorize is only bundled on Ruby >= 2.6") unless defined?(ColorizedString)
+
       require "colorized_string"
       load File.expand_path("../lib/require_bench/color_printer.rb", __dir__), true
     end
