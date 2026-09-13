@@ -61,7 +61,7 @@
     [16, 14, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
     [20, 40, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550]
   ],
-  "require_bench.gemspec:4111165371": [
+  "require_bench.gemspec:40486267": [
     [21, 8, 4, "Lint/LtsRuby/UnavailableMethod: Thread#name= is unavailable before Ruby 2.3.", 2087876002],
     [44, 24, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808],
     [50, 16, 16, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3147164910],
@@ -86,9 +86,9 @@
     [236, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
     [237, 16, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]
   ],
-  "spec/require_bench_support_spec.rb:508819519": [
-    [29, 54, 15, "Lint/LtsRuby/UnavailableMethod: Binding#source_location is unavailable before Ruby 2.6.", 1034148730],
-    [30, 36, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808]
+  "spec/require_bench_support_spec.rb:3404388363": [
+    [40, 56, 15, "Lint/LtsRuby/UnavailableMethod: Binding#source_location is unavailable before Ruby 2.6.", 1034148730],
+    [41, 38, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808]
   ],
   "spec/spec_helper.rb:1590595544": [
     [54, 34, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528],

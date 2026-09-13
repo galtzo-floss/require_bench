@@ -22,13 +22,25 @@ RSpec.describe RequireBench do
   end
 
   describe "the color printer" do
-    subject(:printer) do
-      ObjectSpace.each_object(Class).find do |klass|
-        next unless klass.method_defined?(:out_start)
+    subject(:printer) { color_printer_class.new }
 
-        location = klass.instance_method(:out_start).source_location
-        location && location.first.end_with?("lib/require_bench/color_printer.rb")
-      end.new
+    let(:color_printer_path) { File.expand_path("../lib/require_bench/color_printer.rb", __dir__) }
+    let(:color_printer_class) do
+      if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.1")
+        # Load into an explicit wrapper module; TruffleRuby does not enumerate
+        # classes defined under load(path, true) via ObjectSpace.
+        wrapper = Module.new
+        load(color_printer_path, wrapper)
+        wrapper::Printer
+      else
+        load(color_printer_path, true)
+        ObjectSpace.each_object(Class).find do |klass|
+          next unless klass.method_defined?(:out_start)
+
+          location = klass.instance_method(:out_start).source_location
+          location && location.first.end_with?("lib/require_bench/color_printer.rb")
+        end
+      end
     end
 
     before do
@@ -37,7 +49,6 @@ RSpec.describe RequireBench do
       rescue LoadError
         skip("colorize is only bundled on Ruby >= 2.6")
       end
-      load File.expand_path("../lib/require_bench/color_printer.rb", __dir__), true
     end
 
     it "prints colored messages and rotates colors" do

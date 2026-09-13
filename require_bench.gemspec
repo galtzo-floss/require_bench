@@ -159,4 +159,6 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
   spec.add_development_dependency("lucky_case", "~> 1.1")
+  # Specs require ostruct as a sample std library; it is a bundled gem on Ruby >= 3.5.
+  spec.add_development_dependency("ostruct", ">= 0.1")                              # ruby >= 0 (0.1.0)
 end
