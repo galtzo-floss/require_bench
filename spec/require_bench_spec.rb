@@ -203,6 +203,7 @@ RSpec.describe RequireBench do
 
   describe "the require hook branches" do
     let(:library) { included_library_by_name }
+    let(:fake_files) { %w[included_file unfiltered_file] }
 
     let(:runner) do
       Object.new.tap do |object|
@@ -245,7 +246,10 @@ RSpec.describe RequireBench do
     end
 
     it "measures explicitly included files" do
-      allow(described_class).to receive(:consume_with_timing).and_return(:measured)
+      # Only intercept the fake file; RSpec's lazy matcher autoloads still require for real.
+      allow(described_class).to receive(:consume_with_timing).and_wrap_original do |original, type, file, *args|
+        fake_files.include?(file) ? :measured : original.call(type, file, *args)
+      end
 
       result = runner.send(:_require_bench_file, "require", true, false, "included_file")
 
@@ -254,7 +258,10 @@ RSpec.describe RequireBench do
 
     it "measures all files when no include pattern is configured" do
       stub_const("RequireBench::INCLUDE_PATTERN", nil)
-      allow(described_class).to receive(:consume_with_timing).and_return(:measured)
+      # Only intercept the fake file; RSpec's lazy matcher autoloads still require for real.
+      allow(described_class).to receive(:consume_with_timing).and_wrap_original do |original, type, file, *args|
+        fake_files.include?(file) ? :measured : original.call(type, file, *args)
+      end
 
       result = runner.send(:_require_bench_file, "require", false, false, "unfiltered_file")
 

@@ -8,7 +8,6 @@
 
 source "https://gem.coop"
 
-git_source(:github) { |repo_name| "git@github.com:#{repo_name}.git" }
 git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
 git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
@@ -26,6 +25,8 @@ gem "nomono", "~> 1.1", ">= 1.1.5", require: false # ruby >= 3.2.0
 
 # Templating (env-switched: STRUCTUREDMERGE_DEV=/path/to/structuredmerge/ruby/gems for local paths)
 eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
+# Default local test bundle
+eval_gemfile "gemfiles/modular/colorize.gemfile"
 
 # Debugging
 eval_gemfile "gemfiles/modular/debug.gemfile"

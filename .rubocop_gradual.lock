@@ -45,7 +45,7 @@
     [94, 5, 5, "Lint/LtsRuby/UnavailableMethod: Thread#fetch is unavailable before Ruby 2.5.", 171106201],
     [97, 31, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002]
   ],
-  "lib/require_bench.rb:3194297466": [
+  "lib/require_bench.rb:3865480137": [
     [134, 45, 2, "Lint/Syntax: unexpected token error\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5858765]
   ],
   "lib/require_bench/color_printer.rb:1585572708": [
@@ -61,7 +61,7 @@
     [16, 14, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
     [20, 40, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550]
   ],
-  "require_bench.gemspec:992920586": [
+  "require_bench.gemspec:40486267": [
     [21, 8, 4, "Lint/LtsRuby/UnavailableMethod: Thread#name= is unavailable before Ruby 2.3.", 2087876002],
     [44, 24, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808],
     [50, 16, 16, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3147164910],
@@ -80,20 +80,16 @@
     [72, 13, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
     [98, 13, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002]
   ],
-  "spec/require_bench_spec.rb:1669420772": [
-    [227, 25, 29, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3602591838],
-    [228, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
-    [236, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
-    [237, 16, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]
+  "spec/require_bench_spec.rb:2639968507": [
+    [228, 25, 29, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3602591838],
+    [229, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
+    [237, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
+    [238, 16, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]
   ],
-  "spec/require_bench_support_spec.rb:2833817535": [
-    [29, 54, 15, "Lint/LtsRuby/UnavailableMethod: Binding#source_location is unavailable before Ruby 2.6.", 1034148730],
-    [30, 36, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808]
-  ],
-  "spec/spec_helper.rb:3358466143": [
-    [50, 34, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528],
-    [51, 49, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528],
-    [52, 50, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528]
+  "spec/spec_helper.rb:1590595544": [
+    [54, 34, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528],
+    [55, 49, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528],
+    [56, 50, 8, "Lint/LtsRuby/UnavailableMethod: String/Symbol#casecmp? is unavailable before Ruby 2.4.", 4035388528]
   ],
   "spec/support/helpers/file_factory.rb:3973989258": [
     [21, 16, 2, "Lint/Syntax: unexpected token tLSHFT\n(Using Ruby 2.2 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 5859461],

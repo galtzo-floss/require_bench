@@ -202,6 +202,10 @@ module RequireBench
     end
 
     Kernel.prepend(KernelHook) unless Kernel.ancestors.include?(KernelHook)
+    # Before Ruby 3.0, prepending to Kernel does not reach Object (or any class that
+    # already included Kernel), so the hook never engaged. Prepend to Object as well;
+    # on Ruby >= 3.0 Object already sees the hook through Kernel, making this a no-op.
+    Object.prepend(KernelHook) unless Object.ancestors.include?(KernelHook)
   end
 end
 
