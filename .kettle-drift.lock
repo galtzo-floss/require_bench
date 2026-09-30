@@ -26,6 +26,33 @@
       ]
     }
   ],
+  "eval_gemfile \"gemfiles/modular/json/truffleruby_22_3.gemfile\"\neval_gemfile \"gemfiles/modular/json/truffleruby_23_0.gemfile\"": [
+    {
+      "file": "Appraisal.root.gemfile",
+      "lines": [
+        21,
+        26
+      ]
+    }
+  ],
+  "eval_gemfile \"gemfiles/modular/json/truffleruby_23_0.gemfile\"\neval_gemfile \"gemfiles/modular/json/truffleruby_23_1.gemfile\"": [
+    {
+      "file": "Appraisal.root.gemfile",
+      "lines": [
+        22,
+        27
+      ]
+    }
+  ],
+  "if respond_to?(:generator_only)\ngenerator_only do": [
+    {
+      "file": "Appraisal.root.gemfile",
+      "lines": [
+        19,
+        32
+      ]
+    }
+  ],
   "modular: gemfiles/modular/shunted.gemfile\naction: keep_both": [
     {
       "file": ".structuredmerge/kettle-jem.yml",
