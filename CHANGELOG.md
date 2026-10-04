@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.5] - 2026-10-01
+
+- TAG: [v1.0.5][1.0.5t]
+- COVERAGE: 93.59% -- 146/156 lines in 5 files
+- BRANCH COVERAGE: 59.32% -- 35/59 branches in 5 files
+- 50.00% documented
+
+### Added
+
 - kettle-jem-template-20260720-005 - README Support & Community links now
   include RubyForum.
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
@@ -58,10 +77,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - [kc] kettle-jem/template: updated 5 project files:
   - dependencies (4)
   - other (1)
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -114,10 +129,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Make require timing recursion protection thread-local and preserve lazy-loaded dependencies.
 
-### Security
-
 ## [1.0.4] 2023-10-10
+
 ### Added
+
 - Minimum Ruby version @ 2.2.0
 - Support tracking `load` in addition to `require`!
 - More tests
@@ -137,33 +152,47 @@ Please file a bug if you notice a violation of semantic versioning.
     - ENV['REQUIRE_BENCH_GROUP_PRECEDENCE']
   - Prefer to not group some pattern (i.e. some libraries)
     - ENV['REQUIRE_BENCH_NO_GROUP_PATTERN']
+
 ### Changed
+
 - RequireBench::Version is now RequireBench::VERSION::Version (uses version_gem)
+
 ### Fixed
+
 - No RequireBench behavior unless ENV['REQUIRE_BENCH'] == 'true'
 - Use `casecmp?` instead of `==` to check ENV variable flags ^
 
 ## [1.0.3] 2020-04-08
+
 ### Added
+
 - More tests
 
 ## [1.0.2] 2020-04-08
+
 ### Added
+
 - Improved documentation
 - Improved handling of ENV variables
 
 ## [1.0.1] 2018-09-21
+
 ### Added
+
 - Improved documentation
 - MIT license
 
 ## [1.0.0] 2018-09-21
+
 ### Added
+
 - Initial release
 
-[Unreleased]: https://gitlab.com/pboling/require_bench/-/compare/v1.0.4...HEAD
+[Unreleased]: https://github.com/galtzo-floss/require_bench/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/galtzo-floss/require_bench/compare/v1.0.4...v1.0.5
+[1.0.5t]: https://github.com/galtzo-floss/require_bench/releases/tag/v1.0.5
 [1.0.4]: https://gitlab.com/pboling/require_bench/-/compare/v1.0.3...v1.0.4
 [1.0.3]: https://gitlab.com/pboling/require_bench/-/compare/v1.0.2...v1.0.3
 [1.0.2]: https://gitlab.com/pboling/require_bench/-/compare/v1.0.1...v1.0.2
 [1.0.1]: https://gitlab.com/pboling/require_bench/-/compare/v1.0.0...v1.0.1
-[1.0.0]: https://gitlab.com/pboling/require_bench/-/compare/67e03119ddb8be7b04ae7fd12da62d0ea5b6fb74...v1.0.0
+[1.0.0]: https://github.com/galtzo-floss/require_bench/compare/67e03119ddb8be7b04ae7fd12da62d0ea5b6fb74...v1.0.0
