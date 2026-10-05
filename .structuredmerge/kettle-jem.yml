@@ -126,11 +126,6 @@ dependency_conflicts:
       modular: gemfiles/modular/style.gemfile
       action: keep_both
       reason: "The direct RuboCop LTS range overlaps the modular compatibility split."
-    - gem: rubocop-packaging
-      direct: require_bench.gemspec
-      modular: gemfiles/modular/style.gemfile
-      action: remove_modular_gem
-      reason: "The modular RuboCop Packaging range does not overlap the gemspec range."
     - gem: yard
       direct: require_bench.gemspec
       modular: gemfiles/modular/documentation.gemfile
