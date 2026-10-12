@@ -88,6 +88,7 @@ GEM
       toml-rb (~> 4.1)
       version_gem (~> 1.1, >= 1.1.15)
     cmdparse (3.0.7)
+    colorize (1.1.0)
     colsole (1.0.1)
     command_kit (0.6.0)
     command_kit-completion (0.3.0)
@@ -176,6 +177,8 @@ GEM
       kettle-test (~> 2.0, >= 2.0.24)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
+      version_gem (~> 1.1, >= 1.1.15)
+    kettle-drift (1.0.16)
       version_gem (~> 1.1, >= 1.1.15)
     kettle-family (1.3.10)
       command_kit (~> 0.6)
@@ -582,34 +585,37 @@ PLATFORMS
 DEPENDENCIES
   addressable (>= 2.8, < 3)
   anonymous_loader (~> 0.1, >= 0.1.3)
-  appraisal2 (~> 3.2, >= 3.2.5)
+  appraisal2 (~> 3.2, >= 3.2.3)
   appraisal2-rubocop (~> 1.0, >= 1.0.4)
   benchmark (~> 0.5, >= 0.5.0)
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
+  colorize (~> 1.1)
   debug (>= 1.1)
   erb (~> 6.0, >= 6.0.7)
   gem_bench (~> 2.0, >= 2.0.5)
-  gitmoji-regex (~> 2.0, >= 2.0.15)
+  gitmoji-regex (~> 2.0, >= 2.0.13)
   irb (~> 1.17)
   kettle-changelog (~> 1.0, >= 1.0.8)
-  kettle-dev (~> 3.1, >= 3.1.6)
-  kettle-family (~> 1.3, >= 1.3.4)
-  kettle-soup-cover (~> 3.0, >= 3.0.11)
-  kettle-test (~> 2.0, >= 2.0.23)
+  kettle-dev (~> 3.1, >= 3.1.5)
+  kettle-drift (~> 1.0, >= 1.0.13)
+  kettle-family (~> 1.3, >= 1.3.1)
+  kettle-jem (~> 7.1, >= 7.1.28)
+  kettle-soup-cover (~> 3.0, >= 3.0.10)
+  kettle-test (~> 2.0, >= 2.0.21)
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   lucky_case (~> 1.1)
   mutex_m (~> 0.2)
-  nomono (~> 1.1, >= 1.1.6)
+  nomono (~> 1.1, >= 1.1.7)
   ostruct (~> 0.6, >= 0.1)
   rake (~> 13.0)
   rbs (>= 3.0)
-  reek (~> 6.6, >= 6.6.0)
+  reek (~> 6.5, >= 6.5.0)
   require_bench!
   rubocop-gradual (~> 0.4, >= 0.4.0)
   rubocop-lts (~> 8.3, >= 8.3.3)
-  rubocop-lts-rspec (~> 1.0, >= 1.0.7)
+  rubocop-lts-rspec (~> 1.0, >= 1.0.6)
   rubocop-minitest (~> 0.40, >= 0.40.0)
   rubocop-on-rbs (~> 2.2, >= 2.2.0)
   rubocop-packaging!
@@ -618,13 +624,14 @@ DEPENDENCIES
   standard (~> 1.56, >= 1.56.0)
   stone_checksums (~> 1.0, >= 1.0.9)
   stringio (>= 3.0)
-  turbo_tests2 (~> 3.2, >= 3.2.13)
+  tree_sitter_language_pack (~> 1.16, >= 1.16.2)
+  turbo_tests2 (~> 3.2, >= 3.2.8)
   webrick (~> 1.9)
-  yaml-converter (~> 0.2, >= 0.2.7)
+  yaml-converter (~> 0.2, >= 0.2.5)
   yard (~> 0.9, >= 0.9.45)
   yard-fence!
   yard-junk (~> 0.1, >= 0.1.0)
-  yard-lint (~> 1.12, >= 1.12.0)
+  yard-lint (~> 1.11, >= 1.11.0)
   yard-relative_markdown_links (~> 0.6)
   yard-timekeeper!
   yard-yaml!
@@ -650,6 +657,7 @@ CHECKSUMS
   citrus (3.0.2) sha256=4ec2412fc389ad186735f4baee1460f7900a8e130ffe3f216b30d4f9c684f650
   citrus-toml-merge (7.1.10) sha256=19ff411d851d4d77f06f691aa8d58d859734b7f2b234b777b704f37ad29845ab
   cmdparse (3.0.7) sha256=f7c5cace10bec6abf853370ae095e4b97a84ed9d847b3fb38f41cc4fbc950739
+  colorize (1.1.0)
   colsole (1.0.1) sha256=7632a300ace2db877c024ffe413c684954cf37e41264b75ace9f456c9d657b02
   command_kit (0.6.0) sha256=e57f29cf5aee4f571c210041d910ff87f85749e42dfe75139c57cc93d84afa90
   command_kit-completion (0.3.0) sha256=d9c498555125bcdd0c9d869f2a64a25a2f0205102a7f28c81c7937ae633ea737
@@ -681,6 +689,7 @@ CHECKSUMS
   json-merge (7.1.10) sha256=f90ec2df9512ed67cd4b3d27af773f8126a0bb30f0838a87a3d401a397061a75
   kettle-changelog (1.0.9) sha256=4d3466e190909ce1581a53fd8e30c66aa1b9d1cae19066c4dde6fef053ef29e4
   kettle-dev (3.1.11) sha256=f693eb9596762ac1e43312a78a9835af63b220c7c5352e9481a14784651eb610
+  kettle-drift (1.0.16)
   kettle-family (1.3.10) sha256=c320a64688660411e10d31cadc37d3e36031cb798faa7048671b2f53429708a3
   kettle-gha-pins (0.3.17) sha256=19cb7ec00459c72143430eb86969a077f701d0a1980f50f8ffcd6d01965da65f
   kettle-jem (7.1.29) sha256=7a4b4d08fd4341719aa2ce1e83c17df42b466d6d7d3615a5857ac8e73825e148
