@@ -39,11 +39,7 @@ RSpec.describe RequireBench do
     end
 
     before do
-      begin
-        require "colorized_string"
-      rescue LoadError
-        skip("colorize is only bundled on Ruby >= 2.6")
-      end
+      require "require_bench/colors"
     end
 
     it "prints colored messages and rotates colors" do
@@ -59,6 +55,8 @@ RSpec.describe RequireBench do
       expect(output).to include("[RequireBench-r]")
       expect(output).to include("support/example")
       expect(output).to include("RuntimeError: boom")
+      # internal ANSI colorizer is actually engaged (no colorize gem involved)
+      expect(output).to include("\e[")
     end
   end
 

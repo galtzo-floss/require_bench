@@ -49,10 +49,12 @@ module RequireBench
     preferred_grouping = precedence.first
     prefer_not_path = preferred_grouping != 'path' # path correlates to default behavior of regexp matching
 
-    if defined?(ColorizedString)
-      require 'require_bench/color_printer'
-    else
+    no_color = ENV.key?('NO_COLOR') && !ENV['NO_COLOR'].empty?
+    if no_color
       require 'require_bench/printer'
+    else
+      require 'require_bench/colors'
+      require 'require_bench/color_printer'
     end
     PRINTER = Printer.new
 

@@ -37,6 +37,11 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+- The GPL-2.0-licensed `colorize` gem is no longer bundled for development or
+  used for colored output. The color printer is now the default, powered by
+  the new internal ANSI colorizer (`RequireBench::Colors`); set `NO_COLOR`
+  to fall back to the plain printer.
+
 ### Fixed
 
 ### Security

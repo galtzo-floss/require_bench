@@ -10,4 +10,3 @@ eval_gemfile("modular/rspec_junit_formatter/r3/v0.8.gemfile")
 
 eval_gemfile("modular/rspec.gemfile")
 
-eval_gemfile("modular/colorize.gemfile")

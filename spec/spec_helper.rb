@@ -23,11 +23,9 @@ end
 require "kettle/test/rspec"
 # `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 require "silent_stream"
-begin
-  require "colorize" # gemfiles/modular/colorize.gemfile (Ruby >= 2.6)
-rescue LoadError
-  nil
-end
+# Deterministic plain-printer output for the suite (color printer is the
+# default outside of tests); the color path is covered by its own spec.
+ENV["NO_COLOR"] = "1"
 require "lucky_case"
 
 DEBUG = ENV.fetch("DEBUG", nil) == "true"
