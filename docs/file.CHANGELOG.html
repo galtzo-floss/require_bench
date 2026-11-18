@@ -84,15 +84,15 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
-<h2 id="105---2026-10-01">
-<a href="https://github.com/galtzo-floss/require_bench/compare/v1.0.4...v1.0.5">1.0.5</a> - 2026-10-01</h2>
+<h2 id="105---2026-11-17">
+<a href="https://github.com/galtzo-floss/require_bench/compare/v1.0.4...v1.0.5">1.0.5</a> - 2026-11-17</h2>
 
 <ul>
   <li>TAG: <a href="https://github.com/galtzo-floss/require_bench/releases/tag/v1.0.5">v1.0.5</a>
 </li>
-  <li>COVERAGE: 90.38% – 141/156 lines in 5 files</li>
-  <li>BRANCH COVERAGE: 61.02% – 36/59 branches in 5 files</li>
-  <li>50.00% documented</li>
+  <li>COVERAGE: 90.30% – 149/165 lines in 6 files</li>
+  <li>BRANCH COVERAGE: 59.32% – 35/59 branches in 6 files</li>
+  <li>56.25% documented</li>
 </ul>
 
 <h3 id="added-1">Added</h3>
@@ -134,16 +134,19 @@ use ClickGems instead of BestGems.</p>
 setup-ruby-flash planning and can prepare appraisal-only jobs without<br>
 installing the main Gemfile bundle.</p>
   </li>
-  <li>[kc] kettle-jem/prepare: updated 14 project files:
+  <li>[kc] kettle-jem/prepare: updated 42 project files:
     <ul>
-      <li>configuration (1)</li>
-      <li>dependencies (13)</li>
+      <li>configuration (3)</li>
+      <li>dependencies (39)</li>
     </ul>
   </li>
-  <li>[kc] kettle-jem/template: updated 5 project files:
+  <li>[kc] kettle-jem/template: updated 51 project files:
     <ul>
-      <li>dependencies (4)</li>
-      <li>other (1)</li>
+      <li>code and tests (1)</li>
+      <li>dependencies (11)</li>
+      <li>documentation (2)</li>
+      <li>other (6)</li>
+      <li>workflows (31)</li>
     </ul>
   </li>
 </ul>
@@ -192,11 +195,6 @@ before the test suite starts.</li>
 setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv<br>
 lockfile parser failures on Git and path dependencies.</li>
   <li>
-    <p>kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the<br>
-legacy manual bundle install path, avoiding setup-time Bundler full-index<br>
-failures against <code>gem.coop</code>.</p>
-  </li>
-  <li>
     <p>kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,<br>
 preserving comments and trailing commas during template updates.</p>
   </li>
@@ -204,6 +202,15 @@ preserving comments and trailing commas during template updates.</p>
     <p>Fix coverage configuration loading before the spec helper initializes its run-mode constants.</p>
   </li>
   <li>Make require timing recursion protection thread-local and preserve lazy-loaded dependencies.</li>
+</ul>
+
+<h3 id="removed-1">Removed</h3>
+
+<ul>
+  <li>The GPL-2.0-licensed <code>colorize</code> gem is no longer bundled for development or<br>
+used for colored output. The color printer is now the default, powered by<br>
+the new internal ANSI colorizer (<code>RequireBench::Colors</code>); set <code>NO_COLOR</code><br>
+to fall back to the plain printer.</li>
 </ul>
 
 <h2 id="104-2023-10-10">

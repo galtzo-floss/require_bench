@@ -21,7 +21,7 @@ module RequireBench
       light_yellow: 93,
       light_blue: 94,
       light_magenta: 95,
-      light_cyan: 96,
+      light_cyan: 96
     }.freeze
 
     # Ordered color names the color printer rotates through.

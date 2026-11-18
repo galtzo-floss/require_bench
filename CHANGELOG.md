@@ -22,36 +22,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- [kc] kettle-jem/prepare: updated 28 project files:
-  - configuration (2)
-  - dependencies (26)
-
-- [kc] kettle-jem/template: updated 46 project files:
-  - code and tests (1)
-  - dependencies (7)
-  - documentation (2)
-  - other (5)
-  - workflows (31)
-
 ### Deprecated
 
 ### Removed
-
-- The GPL-2.0-licensed `colorize` gem is no longer bundled for development or
-  used for colored output. The color printer is now the default, powered by
-  the new internal ANSI colorizer (`RequireBench::Colors`); set `NO_COLOR`
-  to fall back to the plain printer.
 
 ### Fixed
 
 ### Security
 
-## [1.0.5] - 2026-10-01
+## [1.0.5] - 2026-11-17
 
 - TAG: [v1.0.5][1.0.5t]
-- COVERAGE: 93.59% -- 146/156 lines in 5 files
-- BRANCH COVERAGE: 59.32% -- 35/59 branches in 5 files
-- 50.00% documented
+- COVERAGE: 90.30% -- 149/165 lines in 6 files
+- BRANCH COVERAGE: 59.32% -- 35/59 branches in 6 files
+- 56.25% documented
 
 ### Added
 
@@ -86,13 +70,15 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
 
-- [kc] kettle-jem/prepare: updated 14 project files:
-  - configuration (1)
-  - dependencies (13)
-
-- [kc] kettle-jem/template: updated 5 project files:
-  - dependencies (4)
-  - other (1)
+- [kc] kettle-jem/prepare: updated 42 project files:
+  - configuration (3)
+  - dependencies (39)
+- [kc] kettle-jem/template: updated 51 project files:
+  - code and tests (1)
+  - dependencies (11)
+  - documentation (2)
+  - other (6)
+  - workflows (31)
 
 ### Fixed
 
@@ -140,6 +126,13 @@ Please file a bug if you notice a violation of semantic versioning.
 - Fix coverage configuration loading before the spec helper initializes its run-mode constants.
 
 - Make require timing recursion protection thread-local and preserve lazy-loaded dependencies.
+
+### Removed
+
+- The GPL-2.0-licensed `colorize` gem is no longer bundled for development or
+  used for colored output. The color printer is now the default, powered by
+  the new internal ANSI colorizer (`RequireBench::Colors`); set `NO_COLOR`
+  to fall back to the plain printer.
 
 ## [1.0.4] 2023-10-10
 

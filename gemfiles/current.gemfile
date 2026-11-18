@@ -7,4 +7,3 @@ gemspec path: "../"
 eval_gemfile("modular/x_std_libs.gemfile")
 
 eval_gemfile("modular/rspec.gemfile")
-

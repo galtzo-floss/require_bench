@@ -111,10 +111,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>third party libs<br />
-You will need to have gem “colorize” installed!<br />
-NOTE: You will need to require “colorized_string” in your own code,<br />
-      in order for this alternate Printer class to load</p>
+    <p>Default Printer, unless NO_COLOR is set (see lib/require_bench.rb).</p>
 
 
   </div>
@@ -329,7 +326,7 @@ NOTE: You will need to require “colorized_string” in your own code,<br />
       <pre class="code"><span class="info file"># File 'lib/require_bench/color_printer.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='ivar'>@colors</span> <span class='op'>=</span> <span class='const'>ColorizedString</span><span class='period'>.</span><span class='id identifier rubyid_colors'>colors</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>black|white</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='ivar'>@colors</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="RequireBench.html" title="RequireBench (module)">RequireBench</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RequireBench/Colors.html" title="RequireBench::Colors (module)">Colors</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RequireBench/Colors.html#NAMES-constant" title="RequireBench::Colors::NAMES (constant)">NAMES</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
